@@ -3,8 +3,8 @@ import cv2
 
 # Betöltjük az OpenCV által biztosított kaszkádokat, egyet az arcra (előről) és egyet a szemekre
 
-faceCascade = cv2.CascadeClassifier('/home/gujankic/PycharmProjects/gepilatas_hf/venv/lib/python3.5/site-packages/cv2/data/haarcascade_frontalface_default.xml')
-eyeCascade = cv2.CascadeClassifier('/home/gujankic/PycharmProjects/gepilatas_hf/venv/lib/python3.5/site-packages/cv2/data/haarcascade_eye.xml')
+faceCascade = cv2.CascadeClassifier('/home/gujankic/PycharmProjects/GepilatasHF/gepilatas_hf/venv/lib/python3.5/site-packages/cv2/data/haarcascade_frontalface_default.xml')
+eyeCascade = cv2.CascadeClassifier('/home/gujankic/PycharmProjects/GepilatasHF/gepilatas_hf/venv/lib/python3.5/site-packages/cv2/data/haarcascade_eye.xml')
 
 img = cv2.imread('haarcasc_img.jpg') # Kép beolvasása
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) # Fekete fehérré konvertálás
