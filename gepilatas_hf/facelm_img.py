@@ -31,22 +31,19 @@ faces = faceCascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=10, mi
 
 landmarks = dlib.shape_predictor("/home/gujankic/PycharmProjects/GepilatasHF/gepilatas_hf/shape_predictor_68_face_landmarks.dat")
 
-# loop over the face detections
+# Végigmegyünk az összes talált arcon
 
 for (x,y,w,h) in faces:
-	# determine the facial landmarks for the face region, then
-	# convert the facial landmark (x, y)-coordinates to a NumPy
-	# array
+	# Meghatározzuk az arci jellemzőket (facial landmarks), a dlib shape predictor-ával, majd ezeket numpy tömbökbe rendezzük
 	shape = landmarks(gray, bb_to_rect(x,y,w,h))
 	shape = shape_to_np(shape)
-	# convert dlib's rectangle to a OpenCV-style bounding box
-	# [i.e., (x, y, w, h)], then draw the face bounding box
+
+	# A dlib rectangle osztályát a cv2 által preferált bounding box-á alakítjuk
 	cv2.rectangle(img_res, (x, y), (x + w, y + h), (0, 255, 0), 2)
-	# show the face number
-	# loop over the (x, y)-coordinates for the facial landmarks
-	# and draw them on the image
+	# Kirajzoljuk az arci jellemzőket
 	for (x, y) in shape:
 		cv2.circle(img_res, (x, y), 1, (0, 0, 255), -1)
-# show the output image with the face detections + facial landmarks
+
+# Kidobjuk a képet
 cv2.imshow("Output", img_res)
 cv2.waitKey(0)
