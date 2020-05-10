@@ -1,3 +1,13 @@
+'''
+Author: Gulyás János
+A jelenleg legtöbb funkcióval bíró, végleges script. A dlib előre betanított arcdetektáló és arci jellemző felismerő modelljeit használom a webkamera valós idejű videó-feedjén.
+Az így kinyert arci jellemzőkből számolom és figyelem a következőket:
+  * Pislogások száma
+  * Az arc dőlésszöge (vízszinteshez képest)
+  * Mosolygás, meglepődöttség, kiváncsiság, mint mimika detektálása
+'''
+
+
 from imutils.video import VideoStream
 from imutils import face_utils
 import datetime
